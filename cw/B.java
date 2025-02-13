@@ -30,7 +30,7 @@ class B{
         for(int i=0;i<noofspacestation;i++){
             spacestation[i]=sc.nextInt();
         }
-        
+        System.out.println("ans is");
         
         maxdisforanycitytoSpacestation(city,spacestation);
 
