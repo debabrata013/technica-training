@@ -2,39 +2,40 @@ package cw;
 
 import java.util.Scanner;
 
-class B{
-    static void maxdisforanycitytoSpacestation(int c,int spt[]){
-       
-        int m=spt.length;
-        int max=0;
-        for(int i=0;i<c;i++){
-            int min=Integer.MAX_VALUE;
-            for(int j=0;j<m;j++){
-                min=Math.min(min,Math.abs(i-spt[j]));
+class B {
+    // Method to find the maximum distance from any city to the nearest space station
+    static void maxDistanceForAnyCityToSpacestation(int numberOfCities, int[] spaceStations) {
+        int numberOfStations = spaceStations.length;
+        int maxDistance = 0;
+
+        for (int city = 0; city < numberOfCities; city++) {
+            int minDistance = Integer.MAX_VALUE;
+            for (int station = 0; station < numberOfStations; station++) {
+                minDistance = Math.min(minDistance, Math.abs(city - spaceStations[station]));
             }
-            max=Math.max(max,min);
+            maxDistance = Math.max(maxDistance, minDistance);
         }
-        System.out.println(max);
+        System.out.println(maxDistance);
     }
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the no of city");
+        Scanner scanner = new Scanner(System.in);
 
-        int city=sc.nextInt();
-        System.out.println("Enter the no of spacestation");
+        System.out.println("Enter the number of cities:");
+        int numberOfCities = scanner.nextInt();
 
-        int noofspacestation=sc.nextInt();
-        int spacestation[]=new int[noofspacestation];
-        System.out.println("Enter the spacestation");
-        for(int i=0;i<noofspacestation;i++){
-            spacestation[i]=sc.nextInt();
+        System.out.println("Enter the number of space stations:");
+        int numberOfStations = scanner.nextInt();
+
+        int[] spaceStations = new int[numberOfStations];
+        System.out.println("Enter the space station locations:");
+        for (int i = 0; i < numberOfStations; i++) {
+            spaceStations[i] = scanner.nextInt();
         }
-        System.out.println("ans is");
-        
-        maxdisforanycitytoSpacestation(city,spacestation);
 
-        
+        System.out.println("The maximum distance from any city to the nearest space station is:");
+        maxDistanceForAnyCityToSpacestation(numberOfCities, spaceStations);
+
+        scanner.close();
     }
-
 }
