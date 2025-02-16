@@ -1,61 +1,51 @@
 package cw;
+
 import java.util.*;
-class C{
-    static ArrayList<Integer> icecrem(int c,int spt[]){
-        ArrayList<Integer> ans=new ArrayList<>();
-        int l=0,r=spt.length-1;
-        Arrays.sort(spt);
-        while(l<=r){
-            int sum=spt[l]+spt[r];
-            if(sum==c){
-                ans.add(spt[l]);
-                ans.add(spt[r]);
+
+class C {
+    // Method to find two ice cream prices that sum up to the given amount
+    static ArrayList<Integer> findIceCreamPair(int targetSum, int prices[]) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int left = 0, right = prices.length - 1;
+        Arrays.sort(prices); // Sort the prices array
+
+        while (left < right) {
+            int sum = prices[left] + prices[right];
+            if (sum == targetSum) {
+                result.add(prices[left]);
+                result.add(prices[right]);
                 break;
-            }
-            else if(sum>c){
-                r--;
-            }
-            else{
-                l++;
+            } else if (sum > targetSum) {
+                right--;
+            } else {
+                left++;
             }
         }
-        return ans;
+        return result;
     }
-    static void kangaru(int x1,int x2,int v1,int v2){
-       if(x1==x2){
-           System.out.println("YES");
-           return;
-       }
-       if(v1==v2){
 
-              System.out.println("NO");
-              return;
-         }
-    
-    
-        if(x1<x2 && v1<=v2){
-            System.out.println("NO");
-            return;
-        }
-        if(x1>x2 && v1>=v2){
-            System.out.println("NO");
-            return;
-        }
-        if((x2-x1)%(v1-v2)==0){
+    // Method to determine if two kangaroos will land on the same position
+    static void willKangaroosMeet(int x1, int x2, int v1, int v2) {
+        if (x1 == x2) {
             System.out.println("YES");
+            return;
         }
-        else{
+        if (v1 == v2) {
+            System.out.println("NO");
+            return;
+        }
+        if ((x2 - x1) % (v1 - v2) == 0 && (x2 - x1) / (v1 - v2) > 0) {
+            System.out.println("YES");
+        } else {
             System.out.println("NO");
         }
-
-       
-        
     }
-    public static void main(String[] args) {
-        // int arr[]={1,3,4,5,6};
-        // ArrayList<Integer> ans=icecrem(6,arr);
-        // System.out.println(ans);
-        kangaru(0, 4, 3, 2);
 
+    public static void main(String[] args) {
+        int prices[] = {1, 3, 4, 5, 6};
+        ArrayList<Integer> iceCreamPair = findIceCreamPair(6, prices);
+        System.out.println("Ice cream pair: " + iceCreamPair);
+
+        willKangaroosMeet(0, 4, 3, 2);
     }
 }
