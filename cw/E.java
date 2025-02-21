@@ -17,15 +17,42 @@ class E{
             System.out.println("Yes");
         }
     }
+    static void timeconverter(String t){
+      char c=t.charAt(t.length()-2);
+      String arr[]=t.split(":");
+  
+      StringBuilder a=new   StringBuilder();
+      if(c=='A'||c=='a'){
+       
+        if(arr[0]=="12") a.append("00:");
+        else a.append(arr[0]+":");
+        a.append(arr[1]+":");
+        a.append(arr[2]);
+        a.deleteCharAt(a.length()-1);
+        a.deleteCharAt(a.length()-1);
+
+
+      }else{
+        if(arr[0].equals("12")) a.append("12:");
+        else a.append((Integer.parseInt(arr[0])+12)+":");
+        a.append(arr[1]+":");
+        a.append(arr[2]);
+        a.deleteCharAt(a.length()-1);
+        a.deleteCharAt(a.length()-1);
+      }
+      System.out.println(a);
+
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int k=sc.nextInt();
-        int arr[]=new int[n];
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
-        angryProfesher(n,k,arr);
+        // int n=sc.nextInt();
+        // int k=sc.nextInt();
+        // int arr[]=new int[n];
+        // for(int i=0;i<n;i++){
+        //     arr[i]=sc.nextInt();
+        // }
+        // angryProfesher(n,k,arr);
+        timeconverter("10:00:00pM");
 
     }
 }
