@@ -43,6 +43,15 @@ class E{
       System.out.println(a);
 
     }
+    static void digonalDifference(int arr[][]){
+        int n=arr.length;
+        int s1=0,s2=0;
+        for(int i=0;i<n;i++){
+            s1+=arr[i][i];
+            s2+=arr[i][n-i-1];
+        }
+        System.out.println(Math.abs(s1-s2));
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         // int n=sc.nextInt();
@@ -52,7 +61,9 @@ class E{
         //     arr[i]=sc.nextInt();
         // }
         // angryProfesher(n,k,arr);
-        timeconverter("10:00:00pM");
+        // timeconverter("10:00:00pM");
+        int arr[][]={{11,2,4},{4,5,6},{10,8,-12}};
+        digonalDifference(arr);
 
     }
 }
