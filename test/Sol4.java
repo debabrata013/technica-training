@@ -38,10 +38,27 @@ public class Sol4 {
         }
         System.out.println(max);
     }
-    
+    static void minimumloss(){
+        int n = sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]>arr[j]&& arr[i]-arr[j]<min){
+                    min=arr[i]-arr[j];
+                }
+            }
+        }
+        System.out.println(min);
+    }
 
     public static void main(String[] args) {
-        
+        // median();
+        // maxBird();
+        minimumloss();
     }
     
 }
