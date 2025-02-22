@@ -24,9 +24,10 @@ public class Sol4 {
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        int max=0; int count=0;
+      
         Arrays.sort(arr);
-        for(int i=0;i<n;i++){
+        int max=0; int count=0;int ele=arr[0];
+        for(int i=0;i<n-1;i++){
             if(arr[i]==arr[i+1]){
                 count++;
             }else{
@@ -34,9 +35,10 @@ public class Sol4 {
             }
             if(count>max){
                 max=count;
+                ele=arr[i];
             }
         }
-        System.out.println(max);
+        System.out.println(ele);
     }
     static void minimumloss(){
         int n = sc.nextInt();
@@ -56,8 +58,8 @@ public class Sol4 {
     }
 
     public static void main(String[] args) {
-        // median();
-        // maxBird();
+        median();
+        maxBird();
         minimumloss();
     }
     
